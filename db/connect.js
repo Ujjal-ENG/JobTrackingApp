@@ -13,4 +13,20 @@ const connectDB = async () => {
     });
 };
 
+// const connectDB = async () => {
+//   const connectionParams = {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//   };
+//   try {
+//     mongoose.connect(
+//       "mongodb+srv://ujjal:ujjal7862@cluster0.rl7zeeb.mongodb.net/JobTrackingApp?retryWrites=true&w=majority",
+//       connectionParams
+//     );
+//     console.log("db is connected");
+//   } catch (error) {
+//     console.log("Db is not connnected: ", error);
+//   }
+// };
+
 export default connectDB;
