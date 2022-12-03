@@ -14,6 +14,7 @@ router.route("/").post(createJob).get(getAllJobs);
 
 //remeber about id
 router.route("/stats").get(showStats);
+
 router.route("/:id").delete(deleteJob).patch(updateJob);
 
 

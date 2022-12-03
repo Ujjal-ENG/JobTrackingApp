@@ -29,14 +29,12 @@ const userSchema = new mongoose.Schema({
       type: String,
       required: [true, "Please Provide LastName"],
       minlength: 3,
-      maxlength: 20,
       trim: true,
       default: "Ujjal Kopa",
     },
 
     location: {
       type: String,
-      maxlength: 20,
       trim: true,
       default: "My City",
     },
