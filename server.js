@@ -5,8 +5,7 @@ import notFoundMiddleWare from "./middleware/not.found.js";
 
 import * as dotenv from "dotenv";
 dotenv.config();
-import 'express-async-errors'
-
+import "express-async-errors";
 
 //db and authenticateUser
 import connectDB from "./db/connect.js";
@@ -16,13 +15,18 @@ import authRouter from "./routes/authRouter.js";
 import jobRouter from "./routes/jobRouter.js";
 
 const app = express();
+
 const port = process.env.PORT || 5000;
 
+app.use(express.json());
+
 app.get("/", (req, res) => {
-  res.send("Welcome");
+  res.json({ msg: "Whgfelcome" });
 });
 
-app.use(express.json());
+app.get("/api/v1", (req, res) => {
+  res.json({ msg: "API" });
+});
 
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/jobs", jobRouter);
