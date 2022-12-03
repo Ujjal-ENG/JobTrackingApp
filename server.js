@@ -2,6 +2,7 @@ import express from "express";
 //middleware
 import errorHandlerMiddleWare from "./middleware/error.handler.js";
 import notFoundMiddleWare from "./middleware/not.found.js";
+import morgan from "morgan";
 
 import * as dotenv from "dotenv";
 dotenv.config();
@@ -17,6 +18,10 @@ import jobRouter from "./routes/jobRouter.js";
 const app = express();
 
 const port = process.env.PORT || 5000;
+
+if (process.env.NODE_ENV !== "production") {
+  app.use(morgan("dev"));
+}
 
 app.use(express.json());
 
