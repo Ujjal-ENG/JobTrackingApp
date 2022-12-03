@@ -16,14 +16,14 @@ import jobRouter from "./routes/jobRouter.js";
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.use(express.json());
-
 app.get("/", (req, res) => {
   res.send("Welcome");
 });
 
+app.use(express.json());
+
 app.use("/api/v1/auth", authRouter);
-app.use("/api/v1/auth", jobRouter);
+app.use("/api/v1/jobs", jobRouter);
 
 //route not found middleware
 app.use(notFoundMiddleWare);
@@ -33,7 +33,7 @@ app.use(errorHandlerMiddleWare);
 
 const start = async () => {
   try {
-    await connectDB(process.env.MONOGO_URL);
+    await connectDB();
     app.listen(port, () => {
       console.log(`Server is running on http://localhost:${port}`);
     });
