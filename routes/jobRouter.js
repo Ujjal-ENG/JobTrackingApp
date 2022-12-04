@@ -10,6 +10,7 @@ import {
   showStats,
 } from "../controllers/jobControllers.js";
 
+
 router.route("/").post(createJob).get(getAllJobs);
 
 //remeber about id

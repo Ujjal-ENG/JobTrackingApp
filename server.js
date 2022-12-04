@@ -2,6 +2,8 @@ import express from "express";
 //middleware
 import errorHandlerMiddleWare from "./middleware/error.handler.js";
 import notFoundMiddleWare from "./middleware/not.found.js";
+import authenticateUser from "./middleware/auth.js";
+
 import morgan from "morgan";
 
 import * as dotenv from "dotenv";
@@ -34,7 +36,7 @@ app.get("/api/v1", (req, res) => {
 });
 
 app.use("/api/v1/auth", authRouter);
-app.use("/api/v1/jobs", jobRouter);
+app.use("/api/v1/jobs", authenticateUser, jobRouter);
 
 //route not found middleware
 app.use(notFoundMiddleWare);
